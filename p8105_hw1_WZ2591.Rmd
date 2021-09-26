@@ -21,6 +21,7 @@ First, create a data frame comprised of:
 4. a factor vector of length 10, with 3 different factor “levels”.
     
 ```{r}
+#create a data_frame
   set.seed(1234)
   data_frame = tibble (
     vec_numeric = rnorm(10),
@@ -30,13 +31,13 @@ First, create a data frame comprised of:
   )
 
 #check the data_frame
-data_frame
+  data_frame
 ```
 
 ## Calculate the mean of  each variable in dataframe
 Now calculate the mean of each variable in the data frame. 
 
-It can work to get the mean of the numeric vectors and the logical vectors. The mean() function converts the logical vectors from "TRUE" and "FALSE" to 1 and 0, respectively, and calculates their arithmetic mean. Code and results are shown below.
+It can work to get the mean of the numeric vectors and the logical vectors. The mean function converts the logical vectors from "TRUE" and "FALSE" to 1 and 0, respectively, and calculates their arithmetic mean. Code and results are shown below.
 ```{r}
   mean(pull(data_frame, vec_numeric))
   mean(pull(data_frame, vec_logical))
@@ -59,6 +60,7 @@ After coercing the logical, character, and factor variables into type "numeric".
 Logical vectors "FALSE" and "TRUE" are turned into 0 and 1, respectively. Character variables are all returned to NA, and a warning shows up. Factor objects are turned to numbers showing their different levels. This help explain what happens when calculating the mean.
 
 # Problem 2
+## Describe the data
 First, use the following code to load the penguins dataset and write a short description of the penguins data set:
 
 1. The name of data is "penguins" with 8 variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
@@ -67,7 +69,12 @@ First, use the following code to load the penguins dataset and write a short des
 ```{r}
   data("penguins", package = "palmerpenguins")
   mean(penguins$flipper_length_mm, na.rm = TRUE)
+```
+## Graphing
+Make a scatter plot of flipper_length_mm (y) vs bill_length_mm (x). Export the first scatterplot to your project directory using ggsave. The plot will be saved to a .pdf file called hwl_plot.png.
+```{r}
   ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species, na.rm = TRUE)) + geom_point(na.rm = TRUE)
+  ggsave(filename = "hw1_plot.png", height = 4, width = 6)
 ```
 
 
