@@ -58,5 +58,18 @@ After coercing the logical, character, and factor variables into type "numeric".
 
 Logical vectors "FALSE" and "TRUE" are turned into 0 and 1, respectively. Character variables are all returned to NA, and a warning shows up. Factor objects are turned to numbers showing their different levels. This help explain what happens when calculating the mean.
 
+# Problem 2
+First, use the following code to load the penguins dataset and write a short description of the penguins data set:
+
+1. The name of data is "penguins" with 8 variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
+2. The size of the dataset is 344row x 8col.
+3. The mean of flipper length is 200.9152
+```{r}
+  data("penguins", package = "palmerpenguins")
+  mean(penguins$flipper_length_mm, na.rm = TRUE)
+  ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species, na.rm = TRUE)) + geom_point(na.rm = TRUE)
+```
+
+
 
 
