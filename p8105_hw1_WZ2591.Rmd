@@ -92,7 +92,7 @@ The mean of flipper length is 200.9152
 ## Graphing
 Make a scatter plot of flipper_length_mm (y) vs bill_length_mm (x). Export the first scatterplot to your project directory using ggsave. The plot will be saved to a .pdf file called hwl_plot.png.
 ```{r}
-  ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species, na.rm = TRUE)) + geom_point(na.rm = TRUE)
+  ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species, na.rm = TRUE)) + geom_point(na.rm = TRUE) + ggtitle("Penguins Flipper Length (mm) vs. Bill Length (mm)")
   ggsave(filename = "hw1_plot.png", height = 4, width = 6)
 ```
 
