@@ -39,15 +39,17 @@ Now calculate the mean of each variable in the data frame.
 
 It can work to get the mean of the numeric vectors and the logical vectors. The mean function converts the logical vectors from "TRUE" and "FALSE" to 1 and 0, respectively, and calculates their arithmetic mean. Code and results are shown below.
 ```{r}
+#the mean of the numeric vectors and the logical vector
   mean(pull(data_frame, vec_numeric))
   mean(pull(data_frame, vec_logical))
 ```
 The mean value of vec_numeric is `r mean(pull(data_frame, vec_numeric))`, and the mean value of vec_logical is `r mean(pull(data_frame, vec_logical))`
 ```{r}
+#the mean of the character vectors and the factor vector
   mean(pull(data_frame, vec_character))
   mean(pull(data_frame, vec_factor))
 ```
-The mean value of vec_character and vec_factor are returned to NA, and a warning shows up. It is because mean() doesn't support these two types of variables.
+The mean value of vec_character and vec_factor are returned to NA, and a warning shows up. It is because mean function doesn't support these two types of variables.
 
 ## Apply the as.numeric function to the logical, character, and factor variables
 ```{r, eval = FALSE}
@@ -66,10 +68,27 @@ First, use the following code to load the penguins dataset and write a short des
 1. The name of data is "penguins" with 8 variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
 2. The size of the dataset is 344row x 8col.
 3. The mean of flipper length is 200.9152
+
 ```{r}
   data("penguins", package = "palmerpenguins")
+  names(penguins)
+  skimr::skim(penguins)
+```
+### Describe the size of data set.
+
+```{r}
+  nrow(penguins)
+  ncol(penguins)
+```
+There are 344 rows and 8 colums within the dataset.
+
+### Calculate the mean flipper length
+
+```{r}
   mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
+The mean of flipper length is 200.9152
+
 ## Graphing
 Make a scatter plot of flipper_length_mm (y) vs bill_length_mm (x). Export the first scatterplot to your project directory using ggsave. The plot will be saved to a .pdf file called hwl_plot.png.
 ```{r}
