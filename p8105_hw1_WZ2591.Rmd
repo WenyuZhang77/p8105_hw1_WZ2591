@@ -65,18 +65,15 @@ Logical vectors "FALSE" and "TRUE" are turned into 0 and 1, respectively. Charac
 ## Describe the data in this dataset, including names / values of important variables
 
 The name of data is "penguins" with 8 variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
-
-
 ```{r}
   data("penguins", package = "palmerpenguins")
   names(penguins)
   skimr::skim(penguins)
 ```
-The name of data is "penguins" with 8 variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
 
 ## Describe the size of data set.
 
-There are 344 rows and 8 columns within the dataset.
+There are `r nrow(penguins)` rows and `r ncol(penguins)` columns
 ```{r}
   nrow(penguins)
   ncol(penguins)
@@ -84,7 +81,7 @@ There are 344 rows and 8 columns within the dataset.
 
 ## Calculate the mean flipper length
 
-The mean of flipper length is 200.9152
+The mean of flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`
 ```{r}
   mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
