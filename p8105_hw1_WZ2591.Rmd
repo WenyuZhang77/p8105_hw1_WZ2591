@@ -62,32 +62,32 @@ After coercing the logical, character, and factor variables into type "numeric".
 Logical vectors "FALSE" and "TRUE" are turned into 0 and 1, respectively. Character variables are all returned to NA, and a warning shows up. Factor objects are turned to numbers showing their different levels. This help explain what happens when calculating the mean.
 
 # Problem 2
-## Describe the data
-First, use the following code to load the penguins dataset and write a short description of the penguins data set:
+## Describe the data in this dataset, including names / values of important variables
 
-1. The name of data is "penguins" with 8 variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
-2. The size of the dataset is 344row x 8col.
-3. The mean of flipper length is 200.9152
+The name of data is "penguins" with 8 variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
+
 
 ```{r}
   data("penguins", package = "palmerpenguins")
   names(penguins)
   skimr::skim(penguins)
 ```
-### Describe the size of data set.
+The name of data is "penguins" with 8 variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex and year.
 
+## Describe the size of data set.
+
+There are 344 rows and 8 columns within the dataset.
 ```{r}
   nrow(penguins)
   ncol(penguins)
 ```
-There are 344 rows and 8 colums within the dataset.
 
-### Calculate the mean flipper length
+## Calculate the mean flipper length
 
+The mean of flipper length is 200.9152
 ```{r}
   mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
-The mean of flipper length is 200.9152
 
 ## Graphing
 Make a scatter plot of flipper_length_mm (y) vs bill_length_mm (x). Export the first scatterplot to your project directory using ggsave. The plot will be saved to a .pdf file called hwl_plot.png.
